@@ -20,7 +20,7 @@
 					<v-flex xs10>
 						<v-btn outlined style="font-size: 10px">Read More</v-btn>
 					</v-flex>
-					<v-flex xs10 offset-xs5>
+					<v-flex xs10 offset-xs7>
 						<v-btn
 						:text=true
 						:href="url">
