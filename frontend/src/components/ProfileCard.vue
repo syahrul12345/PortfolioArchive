@@ -1,14 +1,15 @@
 <template>
 	<div @click.stop="dialog = false">
-	<v-container grid-list-xl text-centre v-bind:fluid="fluid" >
+	<v-container grid-list-xl text-centre fluid="fluid" >
 		<v-layout wrap>
 			<v-flex xs12>
 				<v-card
 				class="mx-auto"
 				:outline="outline"
 				:hover="hover"
-				:flat="flat">
-					<v-container grid-list-xs text-centre v-bind:fluid="fluid">
+				:flat="flat"
+				>
+					<v-container grid-list-xs text-centre fluid="fluid">
 						<v-layout shrink>
 							<v-flex xs-10>
 								<v-card-text>
@@ -27,7 +28,7 @@
 							</v-flex>
 						</v-layout>
 					</v-container>
-					<v-container grid-list-xs text-centre v-bind:fluid="fluid">
+					<v-container grid-list-xs text-centre fluid="fluid">
 						<v-layout wrap>
 							<v-card-actions>
 								<v-flex xl12>
@@ -70,6 +71,7 @@
 </script>
 
 <style>
+
 #myName {
 	font-size: 30px;
 	padding-bottom: 25px;

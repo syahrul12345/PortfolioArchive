@@ -1,5 +1,5 @@
 <template>
-	<v-container grid-list-xs fluid="true" @click.stop="dialog = false">
+	<v-container grid-list-xs :fluid="fluid">
 		<v-layout wrap>
 			<v-flex xs12>
 				<v-card
@@ -15,7 +15,7 @@
 </template>
 <script>
 	export default {
-		props:['DividerText'],
+		props:['DividerText','fluid'],
 		data:()=> ({
 
 		})
