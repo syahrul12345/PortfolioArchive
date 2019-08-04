@@ -1,5 +1,5 @@
 <template>
-	<v-container grid-list-xs>
+	<v-container grid-list-xs fluid="true" @click.stop="dialog = false">
 		<v-layout wrap>
 			<v-flex xs12>
 				<v-card
