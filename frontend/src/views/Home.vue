@@ -11,7 +11,9 @@
           :title="project.name" 
           :blurb="project.blurb" 
           :url="project.url"
-          :mediaSource="project.mediaSource"></ProjectCard>
+          :mediaSource="project.mediaSource"
+          :dappId="project.dappId"
+          ></ProjectCard>
         </v-flex>
       </v-layout>
     </v-container>
@@ -55,10 +57,10 @@ export default {
 
     ],
     Projects:[
-      {name:'Project 1',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'},
-      {name:'Project 2',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'},
-      {name:'Project 3',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'},
-      {name:'Project 4',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'}
+      {name:'Project 1',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/1'},
+      {name:'Project 2',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/2'},
+      {name:'Project 3',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/3'},
+      {name:'Project 4',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/4'}
     ],
     dialog:false
     //
