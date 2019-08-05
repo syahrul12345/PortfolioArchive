@@ -5,7 +5,8 @@
 				<v-card
 				class="mx-auto"
 				:outline=false
-				:flat=true>
+				:flat=true
+				color="rgba(51,51,51,0)">
 					<v-card-text id="divider"> {{ DividerText }} </v-card-text>				
 				</v-card>
 			</v-flex>
@@ -24,6 +25,6 @@
 <style>
 	#divider {
 		font-size: 20px;
-		font-family: montserrat;
+		font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	}
 </style>

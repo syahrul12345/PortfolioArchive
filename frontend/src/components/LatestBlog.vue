@@ -4,9 +4,9 @@
         <v-flex xs10 offset-xs1>
         	<v-card
         	class="mx-auto"
-        	:flat="flat"
-        	:outline="outline"
-        	color="#ffffff">
+        	:flat="true"
+        	:outline="false"
+        	color="rgba(51,51,51,0)">
         		<v-container grid-list-md :fluid="fluid">
         			<v-layout wrap>
         				<v-flex xs4>
@@ -28,8 +28,8 @@
         					<v-card
         					class="mx-auto"
         					>
-        						<h1> Some Project</h1>
-        						<h2> Project Blurb </h2>
+        						<h1> {{latestBlogTitle}}</h1>
+        						<h2> {{latestBlogBlurb}} </h2>
         					</v-card>
         				</v-flex>
         			</v-layout>
@@ -43,10 +43,11 @@
 <script>
 	
 	export default {
+        props:['latestBlogTitle','latestBlogBlurb'],
 		data: () => ({
 			fluid:false,
 			flat:false,
-			outline:true,
+			outline:false,
 		})
 	}
 

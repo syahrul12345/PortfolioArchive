@@ -8,6 +8,7 @@
 				:outline="outline"
 				:hover="hover"
 				:flat="flat"
+				color="rgba(51,51,51,0)"
 				>
 					<v-container grid-list-xs text-centre fluid="fluid">
 						<v-layout shrink>
@@ -31,9 +32,9 @@
 					<v-container grid-list-xs text-centre fluid="fluid">
 						<v-layout wrap>
 							<v-card-actions>
-								<v-flex xl12>
+								<!-- <v-flex xl12>
 									<v-btn outlined style="font-size: 15px" @click.stop="dialog = !dialog">Employment History</v-btn>
-								</v-flex>
+								</v-flex> -->
 								<v-flex xs12>
 									<v-btn outlined style="font-size: 15px">Explore All my Dapps</v-btn>
 								</v-flex>
@@ -57,7 +58,6 @@
 	import Employment from './Employment'
 	export default {
 		props:['avatar','name' ,'blurb','employers'],
-		
 		data: () => ({
 			profileLink: "../assets/profile.png",
 			fluid:true,
@@ -73,11 +73,13 @@
 <style>
 
 #myName {
+	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 30px;
 	padding-bottom: 25px;
 
 }
 #myCV {
+	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 25px
 }
 	
