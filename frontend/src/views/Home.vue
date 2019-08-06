@@ -4,15 +4,14 @@
        <ProfileCard :name="Name" :blurb ="Blurb" :employers="Employers"></ProfileCard>
      <Divider 
      :DividerText="DividerText1" :fluid="true"></Divider>
-    <v-container grid-list-xl :fluid ="true">
+    <v-container grid-list-xl text-center :fluid ="true">
       <v-layout wrap>
         <v-flex v-for="project in Projects" xs3>
           <ProjectCard
           :title="project.name" 
           :blurb="project.blurb" 
-          :url="project.url"
           :mediaSource="project.mediaSource"
-          :dappId="project.dappId"
+          :dappId="project.id"
           ></ProjectCard>
         </v-flex>
       </v-layout>
@@ -31,7 +30,7 @@ import ProjectCard from '../components/ProjectCard'
 import Divider from '../components/Divider' 
 import LatestBlog from '../components/LatestBlog'
 import Footer from '../components/Footer'
-
+import json from '../assets/data.json'
 export default {
   name: 'App',
   components: {
@@ -56,12 +55,7 @@ export default {
       {name:"NCS",duration:"April",blurb:"Have lots of fun!"}
 
     ],
-    Projects:[
-      {name:'Project 1',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/1'},
-      {name:'Project 2',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/2'},
-      {name:'Project 3',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/3'},
-      {name:'Project 4',blurb:'This is project 1',url:'//www.google.com',mediaSource:'https://cdn.vuetifyjs.com/images/cards/docks.jpg',dappId:'/dapp/4'}
-    ],
+    "Projects":json.Projects.slice(0,4),
     dialog:false
     //
   }),

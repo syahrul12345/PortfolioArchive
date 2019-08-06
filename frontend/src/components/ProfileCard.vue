@@ -35,9 +35,11 @@
 								<!-- <v-flex xl12>
 									<v-btn outlined style="font-size: 15px" @click.stop="dialog = !dialog">Employment History</v-btn>
 								</v-flex> -->
+								<router-link :to="this.allDappPage">
 								<v-flex xs12>
 									<v-btn outlined style="font-size: 15px">Explore All my Dapps</v-btn>
 								</v-flex>
+								</router-link>
 							</v-card-actions>
 						</v-layout>
 					</v-container>
@@ -65,6 +67,7 @@
 			hover:false,
 			flat:true,
 			dialog:false,
+			allDappPage:"/dapps"
 		}),
 		
 	}

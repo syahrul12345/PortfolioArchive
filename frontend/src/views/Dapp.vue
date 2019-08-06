@@ -8,32 +8,80 @@
  				class="mx-auto"
  				:hover="hover">
 	 				<div id="dappHeader">
-	 					<p class= "dappName"> HELLO </p>
+	 					<p> {{project.name}} </p>
  					</div>
- 					<v-container grid-list-xl>
+ 					<v-container grid-list-xs>
  						<v-layout wrap>
  							<v-flex xs7 offset-xs1>
  								<v-card
  								:hover="false"
  								:outline="true"
  								:flat="true">
- 										<v-img src="../assets/Multis.jpg"></v-img>
+ 										<v-img :src="require('../assets/' + myFileName)"></v-img>
  								</v-card>
  								<v-flex xs12>
  								<v-card
  								:hover="false"
  								:outline="true"
  								:flat="true">
- 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+ 									{{ project.blurb}}
  								</v-card>
  							</v-flex>
  							</v-flex>
- 							<v-flex xs3>
+ 							<v-flex xs4>
  								<v-card
  								:hover="false"
  								:outline="true"
  								:flat="true">
- 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+ 									<!-- Buttons -->
+ 									<v-container grid-list-xs>
+	 									<v-layout justify-center wrap>
+	 										<v-flex xs12 text-center>
+	 											<v-card
+				 								:hover="true"
+				 								:outline="true"
+				 								:flat="false"
+				 								:text="true"
+				 								text-center
+				 								:href="`//`+project.website">
+				 									Visit the website!
+				 								</v-card>
+	 										</v-flex>
+	 										<v-flex xs12 text-center>
+	 											<v-card
+				 								:hover="true"
+				 								:outline="true"
+				 								:flat="false"
+				 								:text="true"
+				 								text-center
+				 								:href="`//`+project.github">
+				 									Github
+				 								</v-card>
+	 										</v-flex>
+	 										<v-flex xs12>
+	 											Contributors: Syahrul Nizam
+	 										</v-flex>
+	 										<v-flex xs12>
+	 											Platform: {{project.platform}}
+	 										</v-flex>
+	 										<v-flex xs12>
+	 											Frameworks used:
+	 												<v-layout justify-center wrap>
+	 													<v-flex xs3 v-for=" tool in project.tools">
+	 														<p>{{tool}}</p>
+	 													</v-flex>
+	 												</v-layout>
+	 										</v-flex>
+	 										<v-flex xs12>
+	 											Languages:
+	 											<v-layout justify-center wrap>
+	 												<v-flex xs3 v-for="languages in project.languages">
+	 													<p>{{languages}}</p>
+	 												</v-flex>
+	 											</v-layout>
+	 										</v-flex>
+	 									</v-layout>
+ 									</v-container>
  								</v-card>
  							</v-flex>
 
@@ -47,23 +95,35 @@
 </template>
 
 <script>
+	import json from '../assets/data.json'
 	export default {
 		data: () => ({
 			hover:false,
+			id:null,
+			project:null,
+			myFileName:null,
+			
 		}),
-		mounted() {
-			console.log('The id is: ' + this.$route.params.id);
-		},
+		created() {
+			this.id = this.$route.params.id
+			json.Projects.find(item => {
+				if(item.id == this.id){
+					this.project = item;
+					this.myFileName = item.myFileName
+
+				}
+			})
+
+		}
 	}
 </script>
 <style>
 #dappHeader {
-	background-color: green;
-}
-.dappName {
 	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 20px;
-	padding-left: 2px;
+	padding-left: 15px;
+	background-color: #9cf196;
+
 }
 
 </style>
