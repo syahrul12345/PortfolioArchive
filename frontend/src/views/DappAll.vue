@@ -10,14 +10,15 @@
 			</v-layout>
 			<v-layout row wrap>
 				<v-flex v-for="project in Projects" xs3>
+		          <router-link :to="`/dapp/` + project.id">
 		          <ProjectCard
 		          :title="project.name" 
 		          :blurb="project.blurb" 
 		          :url="project.url"
-		          :mediaSource="project.mediaSource"
-		          :dappId="project.id"
+		          :avatarSource="project.avatarName"
 		          :category="project.category"
 		          ></ProjectCard>
+				  </router-link>
         		</v-flex>
 			</v-layout>
 		</v-container>
@@ -37,4 +38,8 @@
 		})
 	}
 </script>
-<style></style>
+<style>
+	li a {
+    text-decoration: none;
+	}
+</style>

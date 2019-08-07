@@ -10,16 +10,16 @@
           <ProjectCard
           :title="project.name" 
           :blurb="project.blurb" 
-          :mediaSource="project.mediaSource"
+          :previewFileName="project.myFileName"
           :dappId="project.id"
           ></ProjectCard>
         </v-flex>
       </v-layout>
     </v-container>
-    <Divider 
+    <!-- <Divider 
      :DividerText="DividerText2" :fluid="true"></Divider>
     <LatestBlog :latestBlogTitle="LatestBlogTitle" :latestBlogBlurb="LatestBlogBlurb"></LatestBlog>
-    
+     -->
   </v-app>
   
 </template>

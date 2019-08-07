@@ -17,7 +17,7 @@
  								:hover="false"
  								:outline="true"
  								:flat="true">
- 										<v-img :src="require('../assets/' + myFileName)"></v-img>
+ 										<v-img :src="require('../assets/images/preview/' + myFileName)"></v-img>
  								</v-card>
  								<v-flex xs12>
  								<v-card
@@ -43,6 +43,7 @@
 				 								:flat="false"
 				 								:text="true"
 				 								text-center
+				 								light
 				 								:href="`//`+project.website">
 				 									Visit the website!
 				 								</v-card>
@@ -54,6 +55,7 @@
 				 								:flat="false"
 				 								:text="true"
 				 								text-center
+				 								light
 				 								:href="`//`+project.github">
 				 									Github
 				 								</v-card>
@@ -62,21 +64,48 @@
 	 											Contributors: Syahrul Nizam
 	 										</v-flex>
 	 										<v-flex xs12>
-	 											Platform: {{project.platform}}
+	 											Platform: 
+	 											<v-layout wrap>
+	 													<v-flex xs3 text-center>
+	 														<v-card
+	 														class="mx-auto"
+	 														:hover="false"
+	 														:flat="true"
+	 														:outline="false"
+	 														v-bind:id="`${project.platform}`">
+	 															{{project.platform}}
+	 														</v-card>
+	 													</v-flex>
+	 												</v-layout>
 	 										</v-flex>
 	 										<v-flex xs12>
 	 											Frameworks used:
-	 												<v-layout justify-center wrap>
-	 													<v-flex xs3 v-for=" tool in project.tools">
-	 														<p>{{tool}}</p>
+	 												<v-layout  wrap>
+	 													<v-flex xs3 v-for=" tool in project.tools" text-center>
+	 														<v-card
+	 														class="mx-auto"
+	 														:hover="false"
+	 														:flat="true"
+	 														:outline="false"
+	 														v-bind:id="`${tool}`">
+	 															{{tool}}
+	 														</v-card>
+	 														
 	 													</v-flex>
 	 												</v-layout>
 	 										</v-flex>
 	 										<v-flex xs12>
 	 											Languages:
-	 											<v-layout justify-center wrap>
-	 												<v-flex xs3 v-for="languages in project.languages">
-	 													<p>{{languages}}</p>
+	 											<v-layout wrap>
+	 												<v-flex xs3 v-for="languages in project.languages" text-center>
+	 													<v-card
+	 														class="mx-auto"
+	 														:hover="false"
+	 														:flat="true"
+	 														:outline="false"
+	 														v-bind:id="`${languages}`">
+	 															{{languages}}
+	 													</v-card>
 	 												</v-flex>
 	 											</v-layout>
 	 										</v-flex>
@@ -124,6 +153,31 @@
 	padding-left: 15px;
 	background-color: #9cf196;
 
+}
+
+#web3JS {
+	background-color: #e1f7d5;
+}
+#truffle{
+	background-color: #ffbdbd;
+}
+#ipfs{
+	background-color: #c9c9ff;
+}
+#vueJS{
+	background-color: #f1cbff;
+}
+#solidity{
+	background-color: #cfb7ae;
+}
+#javascript{
+	background-color: #aec6cf;
+}
+#Ethereum{
+	background-color: #ff6961;
+}
+#Quorum{
+	background-color: #0e8de1;
 }
 
 </style>

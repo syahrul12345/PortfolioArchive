@@ -6,7 +6,7 @@
 			<v-img
 	        v-if="media"
 	        class="white--text"
-	        :src="mediaSource"
+	        :src="require('../assets/images/preview/' + previewFileName)"
 	      	>
 			</v-img>
 			<v-list-item three-line>
@@ -23,7 +23,7 @@
 <script>
 	export default {
 		//this props are binded to and values is passed from the parent App.vue
-		props:['title','blurb','mediaSource','dappId'],
+		props:['title','blurb','previewFileName','dappId'],
 		data: () => ({
 			media:true,
 			hover:true,
