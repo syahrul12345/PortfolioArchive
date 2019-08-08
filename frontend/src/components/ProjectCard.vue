@@ -4,10 +4,11 @@
 		class="mx-auto"
 		:hover="hover">
 			<v-img
-	        v-if="media"
-	        class="white--text"
-	        :src="require('../assets/images/preview/' + previewFileName)"
-	      	>
+			v-if="media"
+			class="white--text"
+			:aspect-ratio="1.77"
+			:src="require('../assets/images/preview/' + previewFileName)"
+			>
 			</v-img>
 			<v-list-item three-line>
 				<v-list-item-content>
@@ -17,7 +18,7 @@
 			</v-list-item>
 		</v-card>
 	</router-link>
-	
+
 </template>
 
 <script>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Dapp from './views/Dapp.vue'
 import DappAll from './views/DappAll.vue'
+import AllBlogs from './views/AllBlogs.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path:'/dapps/',
       name:'dappAll',
       component:DappAll
+    },
+    {
+      path:'/allBlogs/',
+      name:'allBlogs',
+      component:AllBlogs
     }
   ]
 })

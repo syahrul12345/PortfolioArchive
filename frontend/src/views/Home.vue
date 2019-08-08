@@ -6,7 +6,7 @@
      :DividerText="DividerText1" :fluid="true"></Divider>
     <v-container grid-list-xl text-center :fluid ="true">
       <v-layout wrap>
-        <v-flex v-for="project in Projects" xs3>
+        <v-flex v-for="project in Projects" :key="project.id" xs3>
           <ProjectCard
           :title="project.name" 
           :blurb="project.blurb" 
@@ -16,10 +16,10 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <!-- <Divider 
+    <Divider 
      :DividerText="DividerText2" :fluid="true"></Divider>
-    <LatestBlog :latestBlogTitle="LatestBlogTitle" :latestBlogBlurb="LatestBlogBlurb"></LatestBlog>
-     -->
+    <LatestBlog></LatestBlog>
+    
   </v-app>
   
 </template>
@@ -44,8 +44,6 @@ export default {
   data: () => ({
     Name:'Syahrul Nizam',
     Blurb:"Developer Advocate in the nascent bockchain space. Specializes in developing DApps on top Quroum and Ethereum. Currently advocating for Chainstack.",
-    LatestBlogTitle: "Some Blog",
-    LatestBlogBlurb: "Some Blurb2",
     DividerText1:"Featured DApps",
     DividerText2:"Published Articles",
     Employers:[
