@@ -8,7 +8,7 @@
 				:flat=true
 				color="rgba(51,51,51,0)">
 					<v-card-text id="divider"> 
-						{{ DividerText }}     <a :href="link">{{linkText}}</a>
+						{{ DividerText }}     <router-link :to="link">{{linkText}}</router-link>
 					</v-card-text>
 
 				</v-card>
