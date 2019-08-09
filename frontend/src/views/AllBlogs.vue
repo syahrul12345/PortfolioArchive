@@ -1,5 +1,6 @@
 <template>
 	<v-app>
+		<Header ></Header>
 		<v-container grid-list-xl>
 			<v-layout row wrap>
 				<v-flex xs12>
@@ -25,11 +26,12 @@
 <script>
 	import json from './../assets/blogs.json'
 	import BlogCards from '../components/BlogCards.vue'
-
+	import Header from '../components/Header'
 	export default {
 		props:[''],
 		components: {
-			BlogCards
+			BlogCards,
+			Header
 		},
 		data() {
 			return {

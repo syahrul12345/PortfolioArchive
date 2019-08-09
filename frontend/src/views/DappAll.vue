@@ -1,5 +1,6 @@
 <template>
 	<v-app>
+		<Header></Header>
 		<v-container grid-list-xl>
 			<v-layout row wrap>
 				<v-flex xs12>
@@ -27,11 +28,13 @@
 </template>
 <script>
 	import ProjectCard from '../components/ProjectCardV2'
+	import Header from '../components/Header'
 	import json from '../assets/data.json'
 	export default {
 		name: 'App',
 		components: {
-			ProjectCard
+			ProjectCard,
+			Header,
 		},
 		data: () => ({
 			"Projects":json.Projects

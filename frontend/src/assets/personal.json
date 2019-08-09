@@ -1,0 +1,11 @@
+{
+	"info":"I love building decentralized applications (DApps), and at heart I'm a full stack developer. I'm well versed in the use-cases for blockchain technology, and create DApps to mimic these use-cases to demonstrate how easy it is to use Chainstack (where I'm currently employed). I'm currently exploring & learning Hyperledger Fabric + Burrow",
+	"hobbies":"I like to code and hack Solidity Smart Contracts. I also have a big interest and used to be a varsity athelete, representing the National University of Singapore in Muay Thai.",
+	"employers":[
+		{"id":0,"position":"Developer Advocate","name":"Chainstack","period":"Jun 2019 - Present","image":"chainstack.png"},
+		{"id":1,"position":"Project Manager","name":"Talenta","period":"April 2019 - Jun 2019","image":"talenta.png"},
+		{"id":2,"position":"Associate Scientist (Intern)","name":"Neo Materials","period":"Jul 2018 - Jan 2019","image":"neo.png"}
+
+	]
+
+}

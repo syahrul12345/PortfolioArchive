@@ -21,6 +21,7 @@
 							<v-flex xs-2>
 								<v-avatar
 								class = "profile"
+								style = "padding-right: 10%"
 								:size="$vuetify.breakpoint.smAndUp ? 164 : 128"
 								color="gray"
 								tile>
@@ -47,17 +48,11 @@
 				
 			</v-flex>
 		</v-layout>
-		<!-- <v-dialog v-model="dialog" persistent max-width="600px">
-          <v-container v-for="employer in employers">
-            <Employment :Employer="employer.name" :Duration ="employer.duration" :Blurb="employer.blurb"></Employment>
-          </v-container>
-      	</v-dialog> -->
 	</v-container>
 </div>
 </template>
 
 <script>
-	import Employment from './Employment'
 	export default {
 		props:['avatar','name' ,'blurb','employers'],
 		data: () => ({

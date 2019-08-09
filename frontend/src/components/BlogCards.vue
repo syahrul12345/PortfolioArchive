@@ -5,7 +5,7 @@
 		:href="`//${url}`"
 		>
 			<v-list-item id="listSet" three-line>
-				<v-list-item-avatar color="grey">
+				<v-list-item-avatar color="white">
 					<v-img :src="require('../assets/images/blogs/avatars/' + publication + '.png' )"></v-img>
 				</v-list-item-avatar>
 				<v-list-item-content>

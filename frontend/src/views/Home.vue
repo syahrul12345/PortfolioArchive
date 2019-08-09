@@ -1,11 +1,20 @@
 <template>
   <v-app>
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-       <ProfileCard :name="Name" :blurb ="Blurb" :employers="Employers"></ProfileCard>
+    <Header></Header>
+       <ProfileCard 
+       :name="Name" 
+       :blurb ="Blurb" 
+       :employers="Employers"
+       ></ProfileCard>
      <Divider 
      :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"></Divider>
-    <v-container grid-list-xl text-center :fluid ="true">
-      <v-layout wrap>
+    <v-container 
+    grid-list-sm 
+    text-center 
+    :fluid ="true" 
+    style="padding-left:4%;padding-right:4%">
+      <v-layout shrink>
         <v-flex v-for="project in Projects" :key="project.id" xs3>
           <ProjectCard
           :title="project.name" 
@@ -30,6 +39,7 @@ import ProjectCard from '../components/ProjectCard'
 import Divider from '../components/Divider' 
 import LatestBlog from '../components/LatestBlog'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 import json from '../assets/data.json'
 export default {
   name: 'App',
@@ -39,7 +49,7 @@ export default {
     Divider,
     LatestBlog,
     Footer,
-    
+    Header
   },
   data: () => ({
     Name:'Syahrul Nizam',
@@ -61,5 +71,4 @@ export default {
 </script>
 
 <style>
-  
 </style>

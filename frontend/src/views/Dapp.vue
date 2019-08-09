@@ -1,131 +1,140 @@
 <template>
- <v-app>
- 	<!-- <h1> {{ $route.params.id }} </h1> -->
- 	<v-container grid-list-md>
- 		<v-layout wrap>
- 			<v-flex xs12>
- 				<v-card
- 				class="mx-auto"
- 				:hover="hover">
-	 				<div id="dappHeader">
-	 					<p> {{project.name}} </p>
- 					</div>
- 					<v-container grid-list-xs>
- 						<v-layout wrap>
- 							<v-flex xs7 offset-xs1>
- 								<v-card
- 								:hover="false"
- 								:outline="true"
- 								:flat="true">
- 										<v-img :src="require('../assets/images/preview/' + myFileName)"></v-img>
- 								</v-card>
- 								<v-flex xs12>
- 								<v-card
- 								:hover="false"
- 								:outline="true"
- 								:flat="true">
- 									{{ project.blurb}}
- 								</v-card>
- 							</v-flex>
- 							</v-flex>
- 							<v-flex xs4>
- 								<v-card
- 								:hover="false"
- 								:outline="true"
- 								:flat="true">
- 									<!-- Buttons -->
- 									<v-container grid-list-xs>
-	 									<v-layout justify-center wrap>
-	 										<v-flex xs12 text-center>
-	 											<v-card
-				 								:hover="true"
-				 								:outline="true"
-				 								:flat="false"
-				 								:text="true"
-				 								text-center
-				 								light
-				 								:href="`//`+project.website">
-				 									Visit the website!
-				 								</v-card>
-	 										</v-flex>
-	 										<v-flex xs12 text-center>
-	 											<v-card
-				 								:hover="true"
-				 								:outline="true"
-				 								:flat="false"
-				 								:text="true"
-				 								text-center
-				 								light
-				 								:href="`//`+project.github">
-				 									Github
-				 								</v-card>
-	 										</v-flex>
-	 										<v-flex xs12>
-	 											Contributors: Syahrul Nizam
-	 										</v-flex>
-	 										<v-flex xs12>
-	 											Platform: 
-	 											<v-layout wrap>
-	 													<v-flex xs3 text-center>
-	 														<v-card
-	 														class="mx-auto"
-	 														:hover="false"
-	 														:flat="true"
-	 														:outline="false"
-	 														v-bind:id="`${project.platform}`">
-	 															{{project.platform}}
-	 														</v-card>
-	 													</v-flex>
-	 												</v-layout>
-	 										</v-flex>
-	 										<v-flex xs12>
-	 											Frameworks used:
-	 												<v-layout  wrap>
-	 													<v-flex xs3 v-for=" tool in project.tools" text-center>
-	 														<v-card
-	 														class="mx-auto"
-	 														:hover="false"
-	 														:flat="true"
-	 														:outline="false"
-	 														v-bind:id="`${tool}`">
-	 															{{tool}}
-	 														</v-card>
-	 														
-	 													</v-flex>
-	 												</v-layout>
-	 										</v-flex>
-	 										<v-flex xs12>
-	 											Languages:
-	 											<v-layout wrap>
-	 												<v-flex xs3 v-for="languages in project.languages" text-center>
-	 													<v-card
-	 														class="mx-auto"
-	 														:hover="false"
-	 														:flat="true"
-	 														:outline="false"
-	 														v-bind:id="`${languages}`">
-	 															{{languages}}
-	 													</v-card>
-	 												</v-flex>
-	 											</v-layout>
-	 										</v-flex>
-	 									</v-layout>
- 									</v-container>
- 								</v-card>
- 							</v-flex>
+<v-app>
+	<!-- <h1> {{ $route.params.id }} </h1> -->
+<v-container grid-list-md>
+	<Header></Header>
+		<v-layout wrap>
+			<v-flex xs12>
+			<v-card
+			class="mx-auto"
+			:hover="hover">
+				<div id="dappHeader">
+					<p> {{project.name}} </p>
+				</div>
+				<v-container grid-list-xs>
+					<v-layout wrap>
+						<v-flex xs7 offset-xs1>
+							<v-card
+							:hover="false"
+							:outline="true"
+							:flat="true">
+									<v-img :src="require('../assets/images/preview/' + myFileName)"></v-img>
+							</v-card>
+							<v-flex xs12>
+							<v-card
+							:hover="false"
+							:outline="true"
+							:flat="true">
+								{{ project.blurb}}
+							</v-card>
+						</v-flex>
+						</v-flex>
+						<v-flex xs4>
+							<v-card
+							:hover="false"
+							:outline="true"
+							:flat="true">
+								<!-- Buttons -->
+								<v-container grid-list-xs>
+									<v-layout justify-center wrap>
+										<v-flex xs12 text-center>
+											<v-card
+											:hover="true"
+											:outline="true"
+											:flat="false"
+											:text="true"
+											text-center
+											light
+											:href="`//`+project.website">
+												Visit the website!
+											</v-card>
+										</v-flex>
+										<v-flex xs12 text-center>
+											<v-card
+											:hover="true"
+											:outline="true"
+											:flat="false"
+											:text="true"
+											text-center
+											light
+											:href="`//`+project.github">
+												Github
+											</v-card>
+										</v-flex>
+										<v-flex xs12>
+											Contributors: Syahrul Nizam
+										</v-flex>
+										<v-flex xs12>
+											Platform: 
+											<v-layout wrap>
+													<v-flex xs3 text-center>
+														<v-card
+														class="mx-auto"
+														:hover="false"
+														:flat="true"
+														:outline="false"
+														v-bind:id="`${project.platform}`">
+															{{project.platform}}
+														</v-card>
+													</v-flex>
+												</v-layout>
+										</v-flex>
+										<v-flex xs12>
+											Frameworks used:
+												<v-layout  wrap>
+													<v-flex xs3 v-for=" tool in project.tools"
+													v-bind:key="project.id"
+													text-center>
+														<v-card
+														class="mx-auto"
+														:hover="false"
+														:flat="true"
+														:outline="false"
+														v-bind:id="`${tool}`">
+															{{tool}}
+														</v-card>
+														
+													</v-flex>
+												</v-layout>
+										</v-flex>
+										<v-flex xs12>
+											Languages:
+											<v-layout wrap>
+												<v-flex xs3 v-for="languages in project.languages"
+												:key="project.id"
+												text-center>
+													<v-card
+														class="mx-auto"
+														:hover="false"
+														:flat="true"
+														:outline="false"
+														v-bind:id="`${languages}`">
+															{{languages}}
+													</v-card>
+												</v-flex>
+											</v-layout>
+										</v-flex>
+									</v-layout>
+								</v-container>
+							</v-card>
+						</v-flex>
 
- 						</v-layout>
- 					</v-container>
- 				</v-card>
- 			</v-flex>
- 		</v-layout>
- 	</v-container>
- </v-app>
+					</v-layout>
+				</v-container>
+			</v-card>
+			</v-flex>
+		</v-layout>
+	</v-container>
+</v-app>
 </template>
 
 <script>
 	import json from '../assets/data.json'
+	import Header from '../components/Header'
 	export default {
+		components: {
+			Header
+		},
 		data: () => ({
 			hover:false,
 			id:null,
@@ -155,6 +164,22 @@
 
 }
 
+#Hyperledger{
+	background-color: #b19cd9;
+}
+
+#Multichain{
+	background-color: #fffe71;
+}
+
+#VueJS{
+	background-color: #41b883;
+}
+
+#embark{
+	background-color: #4571da;
+}
+
 #web3JS {
 	background-color: #e1f7d5;
 }
@@ -178,6 +203,16 @@
 }
 #Quorum{
 	background-color: #0e8de1;
+}
+
+#Python{
+	background-color: #FFD43B;
+}
+#Solidity{
+	background-color: cyan;
+}
+#Javascript{
+	background-color: #6cc24a;
 }
 
 </style>

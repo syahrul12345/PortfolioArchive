@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import Dapp from './views/Dapp.vue'
 import DappAll from './views/DappAll.vue'
 import AllBlogs from './views/AllBlogs.vue'
+import Resume from './views/Resume.vue'
+import Contact from './views/Contact.vue'
 
 Vue.use(Router)
 
@@ -30,6 +32,16 @@ export default new Router({
       path:'/allBlogs/',
       name:'allBlogs',
       component:AllBlogs
+    },
+    { 
+      path:'/resume/',
+      name:'resume',
+      component:Resume
+    },
+    { 
+      path:'/contact/',
+      name:'contact',
+      component:Contact
     }
   ]
 })

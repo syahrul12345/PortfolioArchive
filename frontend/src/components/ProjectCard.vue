@@ -2,10 +2,12 @@
 	<router-link :to="`/dapp/` + dappId" style="text-decoration: none" >
 		<v-card
 		class="mx-auto"
-		:hover="hover">
+		:hover="hover"
+		:max-width="360">
 			<v-img
 			v-if="media"
 			class="white--text"
+			max-height="189"
 			:aspect-ratio="1.77"
 			:src="require('../assets/images/preview/' + previewFileName)"
 			>
