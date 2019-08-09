@@ -42,14 +42,14 @@
 	#category {
 		padding-left: 10px;
 	}
-	#hackernoon{
+	#chainstack{
 		background-color: #b0deff;
 	}
 	#coinmonks{
-		
+		background-color: #d2cc1e;
 	}
-	#Chainstack{
-
+	#hackernoon{
+		background-color: #3bb57a;
 	}
 	
 	li a {
