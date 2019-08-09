@@ -7,7 +7,7 @@
                 :flat="true"
                 :outline="false"
                 color="rgba(51,51,51,0)"
-                :href="`//${latest.link}`">
+                >
                     <v-container grid-list-md :fluid="fluid">
                         <v-layout wrap>
                             <v-flex xs5>
@@ -30,6 +30,11 @@
                                 >
                                     <h1 id="blogHeader">{{latest.title}}</h1>
                                     <h2 id="blogBlurb">{{latest.blurb}}</h2>
+                                    <a 
+                                    :href="`//${latest.link}`"
+                                    >
+                                        <p id="blogReadMore">Read more</p>
+                                    </a>
                                 </v-card>
                             </v-flex>
                         </v-layout>
@@ -58,9 +63,21 @@
 </script>
 <style>
     #blogHeader {
+        font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
+        padding-top:5%;
+        padding-right:1%;
+        padding-left:5%;
         font-size:25px;
     }
     #blogBlurb {
+        font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
         font-size: 20px;
+        padding-top:2%;
+        padding-left:5%;
+    }
+    #blogReadMore{
+        font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
+        padding-top:2%;
+        padding-left:5%;
     }
 </style>

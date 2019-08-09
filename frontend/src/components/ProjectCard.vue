@@ -1,5 +1,5 @@
 <template>
-	<router-link :to="`/dapp/` + dappId">
+	<router-link :to="`/dapp/` + dappId" style="text-decoration: none" >
 		<v-card
 		class="mx-auto"
 		:hover="hover">
@@ -36,4 +36,5 @@
 	}
 
 </script>
-<style></style>
+<style>
+</style>

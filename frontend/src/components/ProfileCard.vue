@@ -35,7 +35,7 @@
 								<!-- <v-flex xl12>
 									<v-btn outlined style="font-size: 15px" @click.stop="dialog = !dialog">Employment History</v-btn>
 								</v-flex> -->
-								<router-link :to="this.allDappPage">
+								<router-link :to="this.allDappPage" style="text-decoration: none">
 								<v-flex xs12>
 									<v-btn outlined style="font-size: 15px">Explore All my Dapps</v-btn>
 								</v-flex>
@@ -84,6 +84,9 @@
 #myCV {
 	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 25px
+}
+li a {
+    text-decoration: none;
 }
 	
 </style>

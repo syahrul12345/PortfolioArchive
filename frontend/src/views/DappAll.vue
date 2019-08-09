@@ -10,7 +10,7 @@
 			</v-layout>
 			<v-layout row wrap>
 				<v-flex v-for="project in Projects" :key="project" xs3>
-				<router-link :to="`/dapp/` + project.id">
+				<router-link :to="`/dapp/` + project.id" style="text-decoration: none">
 					<ProjectCard
 					:title="project.name" 
 					:blurb="project.blurb" 

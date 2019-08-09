@@ -3,7 +3,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
        <ProfileCard :name="Name" :blurb ="Blurb" :employers="Employers"></ProfileCard>
      <Divider 
-     :DividerText="DividerText1" :fluid="true"></Divider>
+     :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"></Divider>
     <v-container grid-list-xl text-center :fluid ="true">
       <v-layout wrap>
         <v-flex v-for="project in Projects" :key="project.id" xs3>
@@ -17,7 +17,7 @@
       </v-layout>
     </v-container>
     <Divider 
-     :DividerText="DividerText2" :fluid="true"></Divider>
+     :DividerText="DividerText2" :linkText="'See all articles'" :link="`/allblogs`":fluid="true"></Divider>
     <LatestBlog></LatestBlog>
     
   </v-app>
@@ -45,7 +45,7 @@ export default {
     Name:'Syahrul Nizam',
     Blurb:"Developer Advocate in the nascent bockchain space. Specializes in developing DApps on top Quroum and Ethereum. Currently advocating for Chainstack.",
     DividerText1:"Featured DApps",
-    DividerText2:"Published Articles",
+    DividerText2:"Article Spotlight",
     Employers:[
       {name:"Chainstack",duration:"June",blurb:"Have lots of fun!"},
       {name:"Talenta",duration:"April",blurb:"Have lots of fun!"},
