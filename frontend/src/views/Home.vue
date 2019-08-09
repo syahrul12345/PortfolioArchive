@@ -43,7 +43,7 @@ export default {
   },
   data: () => ({
     Name:'Syahrul Nizam',
-    Blurb:"Developer Advocate in the nascent bockchain space. Specializes in developing DApps on top Quroum and Ethereum. Currently advocating for Chainstack.",
+    Blurb:"Developer Advocate in the nascent bockchain space. Specializes in developing DApps on top Quroum and Ethereum,wtih a large interest in using Solidity to build Smart Contracts. Currently a Developer Advocate for Chainstack, where I create applications to demonstrate Chainstack's extremely simple Blockchain-on-the-fly deployment process.",
     DividerText1:"Featured DApps",
     DividerText2:"Article Spotlight",
     Employers:[

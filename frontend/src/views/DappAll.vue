@@ -9,7 +9,7 @@
 				</v-flex>
 			</v-layout>
 			<v-layout row wrap>
-				<v-flex v-for="project in Projects" :key="project" xs3>
+				<v-flex v-for="project in Projects" :key="project.id" xs3>
 				<router-link :to="`/dapp/` + project.id" style="text-decoration: none">
 					<ProjectCard
 					:title="project.name" 
