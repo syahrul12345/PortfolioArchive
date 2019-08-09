@@ -1,6 +1,13 @@
 <template>
 	<v-app>
 		<Header></Header>
+		<v-container grid-list-xs>
+			<v-layout wrap>
+				<v-flex xs>
+					
+				</v-flex>
+			</v-layout>
+		</v-container>
 	</v-app>
 	
 </template>
