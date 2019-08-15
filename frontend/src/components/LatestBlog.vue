@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-md>
+    <v-container grid-list-md style="padding-left:4%;padding-right:4%">
         <v-layout shrink>
             <v-flex xs12>
                 <v-card
@@ -8,9 +8,9 @@
                 :outline="false"
                 color="rgba(51,51,51,0)"
                 >
-                    <v-container grid-list-md :fluid="fluid">
+                    <v-container grid-list-md>
                         <v-layout wrap>
-                            <v-flex xs5>
+                            <v-flex xs4>
                                 <v-card
                                 class="mx-auto"
                                 :flat="flat"
@@ -18,11 +18,12 @@
                                 elevation=true>
                                     <v-img
                                     :min-height="251"
+                                    :max-height="251"
                                     :aspect-ratio="2" 
                                     :src="require(`../assets/images/blogs/preview/` + latest.blogImage)"></v-img>
                                 </v-card>
                             </v-flex>
-                            <v-flex xs7>
+                            <v-flex xs8>
                                 <v-card
                                 class="mx-auto"
                                 :min-height="251"
@@ -64,7 +65,7 @@
 <style>
     #blogHeader {
         font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
-        padding-top:5%;
+        padding-top:2%;
         padding-right:1%;
         padding-left:5%;
         font-size:25px;
