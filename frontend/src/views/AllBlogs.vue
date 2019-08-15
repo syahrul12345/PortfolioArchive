@@ -1,7 +1,7 @@
 <template>
 	<v-app>
 		<Header ></Header>
-		<v-container grid-list-xl>
+		<v-container grid-list-xl :fluid="true" style="padding-right: 7%;padding-left: 7%">
 			<v-layout row wrap>
 				<v-flex xs12>
 					<p class="text-center"> Collection </p>

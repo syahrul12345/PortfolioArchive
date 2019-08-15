@@ -1,7 +1,11 @@
 <template>
 	<v-app>
 		<Header></Header>
-		<v-container grid-list-xl>
+		<v-container 
+		grid-list-xl 
+		:fluid="true" 
+		class="mx-auto" 
+		style="padding-right: 5%;padding-left: 5%">
 			<v-layout row wrap>
 				<v-flex xs12>
 					<p class="text-center"> Collection </p>

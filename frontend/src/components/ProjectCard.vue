@@ -3,7 +3,7 @@
 		<v-card
 		class="mx-auto"
 		:hover="hover"
-		:max-width="360">
+		>
 			<v-img
 			v-if="media"
 			class="white--text"

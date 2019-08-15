@@ -1,8 +1,11 @@
 <template>
 <v-app>
-	<!-- <h1> {{ $route.params.id }} </h1> -->
-<v-container grid-list-md>
 	<Header></Header>
+<v-container 
+grid-list-md 
+:fluid="true" 
+style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
+	
 		<v-layout wrap>
 			<v-flex xs12>
 			<v-card

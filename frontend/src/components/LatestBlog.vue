@@ -1,49 +1,33 @@
 <template>
-    <v-container grid-list-md style="padding-left:4%;padding-right:4%">
-        <v-layout shrink>
-            <v-flex xs12>
-                <v-card
-                class="mx-auto"
-                :flat="true"
-                :outline="false"
-                color="rgba(51,51,51,0)"
-                >
-                    <v-container grid-list-md>
-                        <v-layout wrap>
-                            <v-flex xs4>
-                                <v-card
-                                class="mx-auto"
-                                :flat="flat"
-                                :outline="outline"
-                                elevation=true>
-                                    <v-img
-                                    :min-height="251"
-                                    :max-height="251"
-                                    :aspect-ratio="2" 
-                                    :src="require(`../assets/images/blogs/preview/` + latest.blogImage)"></v-img>
-                                </v-card>
-                            </v-flex>
-                            <v-flex xs8>
-                                <v-card
-                                class="mx-auto"
-                                :min-height="251"
-                                :max-height="251"
-                                >
-                                    <h1 id="blogHeader">{{latest.title}}</h1>
-                                    <h2 id="blogBlurb">{{latest.blurb}}</h2>
-                                    <a 
-                                    :href="`//${latest.link}`"
-                                    >
-                                        <p id="blogReadMore">Read more</p>
-                                    </a>
-                                </v-card>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
+        <v-container grid-list-xl class="mx-auto" :fluid ="true">
+            <v-layout shrink>
+                <v-flex xs4 offset-xs1>
+                    <v-card
+                    :flat="flat"
+                    :outline="outline"
+                    elevation=true
+                    >
+                        <v-img
+                        :aspect-ratio="2" 
+                        :src="require(`../assets/images/blogs/preview/` + latest.blogImage)"></v-img>
+                    </v-card>
+                </v-flex>
+                <v-flex xs6>
+                    <v-card
+                    class="mx-auto"
+                    >
+                        <h1 id="blogHeader">{{latest.title}}</h1>
+                        <h2 id="blogBlurb">{{latest.blurb}}</h2>
+                        <a 
+                        :href="`//${latest.link}`"
+                        >
+                            <p id="blogReadMore">Read more</p>
+                        </a>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+        
 
 </template>
 <script>
@@ -80,5 +64,6 @@
         font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
         padding-top:2%;
         padding-left:5%;
+        padding-bottom:2%;
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
 <v-app>
 	<Header></Header>
-	<v-container grid-list-md>
+	<v-container grid-list-md :fluid ="true" style="padding-right: 5%;padding-left: 5%">
 		<v-layout wrap>
 			<v-flex xs-12>
 				<v-card

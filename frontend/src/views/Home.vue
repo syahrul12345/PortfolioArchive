@@ -10,7 +10,7 @@
      <Divider 
      :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"></Divider>
     <v-container 
-    grid-list-sm 
+    grid-list-xl 
     text-center 
     :fluid ="true" 
     style="padding-left:4%;padding-right:4%">
