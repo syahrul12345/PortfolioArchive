@@ -17,34 +17,62 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta:{
-        title:'Portfolio'
+      meta: { title: 'Portfolio' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
       }
     },
     {
       path: '/dapp/:id',
       name: 'dapp',
-      component: Dapp
+      component: Dapp,
+      meta: { title: 'Dapp' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
+      }
     },
     {
       path:'/dapps/',
       name:'dappAll',
-      component:DappAll
+      component:DappAll,
+      meta: { title: 'All Dapps' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
+      }
     },
     {
       path:'/allBlogs/',
       name:'allBlogs',
-      component:AllBlogs
+      component:AllBlogs,
+      meta: { title: 'All Blogs' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
+      }
     },
     { 
       path:'/resume/',
       name:'resume',
-      component:Resume
+      component:Resume,
+      meta: { title: 'Resume' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
+      }
     },
     { 
       path:'/contact/',
       name:'contact',
-      component:Contact
+      component:Contact,
+      meta: { title: 'Contact Me' },
+      beforeEnter: (to,from,next) => {
+        document.title = to.meta.title
+        next()
+      }
     }
-  ]
+  ],
+
 })

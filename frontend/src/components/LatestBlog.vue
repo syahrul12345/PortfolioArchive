@@ -1,7 +1,7 @@
 <template>
         <v-container grid-list-xl class="mx-auto" :fluid ="true">
             <v-layout wrap>
-                <v-flex xs12  sm12 md4 offset-md1>
+                <v-flex xs12 sm12 md4 offset-md1>
                     <v-card
                     :flat="flat"
                     :outline="outline"

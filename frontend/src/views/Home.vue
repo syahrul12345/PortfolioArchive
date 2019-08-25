@@ -30,7 +30,6 @@
      :DividerText="DividerText2" :linkText="'See all articles'" :link="`/allblogs`":fluid="true"></Divider>
     <LatestBlog></LatestBlog>
   </v-app>
-  
 </template>
 
 <script>
@@ -43,7 +42,6 @@ import Header from '../components/Header'
 import HeaderSmall from '../components/HeaderSmall'
 import json from '../assets/data.json'
 export default {
-  name: 'App',
   components: {
     ProfileCard,
     ProjectCard,
