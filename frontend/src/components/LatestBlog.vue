@@ -1,7 +1,7 @@
 <template>
         <v-container grid-list-xl class="mx-auto" :fluid ="true">
-            <v-layout shrink>
-                <v-flex xs4 offset-xs1>
+            <v-layout wrap>
+                <v-flex xs12  sm12 md4 offset-md1>
                     <v-card
                     :flat="flat"
                     :outline="outline"
@@ -12,12 +12,12 @@
                         :src="require(`../assets/images/blogs/preview/` + latest.blogImage)"></v-img>
                     </v-card>
                 </v-flex>
-                <v-flex xs6>
+                <v-flex xs12 sm 12 md6>
                     <v-card
                     class="mx-auto"
                     >
-                        <h1 id="blogHeader">{{latest.title}}</h1>
-                        <h2 id="blogBlurb">{{latest.blurb}}</h2>
+                        <v-card-title>{{latest.title}}</v-card-title>
+                        <v-card-text>{{latest.blurb}}</v-card-text>
                         <a 
                         :href="`//${latest.link}`"
                         >

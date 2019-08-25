@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-    <Header></Header>
+    <Header id="header" v-if="windowWidth > 600 "> "></Header>
+    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
        <ProfileCard 
        :name="Name" 
        :blurb ="Blurb" 
@@ -14,8 +15,8 @@
     text-center 
     :fluid ="true" 
     style="padding-left:4%;padding-right:4%">
-      <v-layout shrink>
-        <v-flex v-for="project in Projects" :key="project.id" xs3>
+      <v-layout wrap>
+        <v-flex v-for="project in Projects" :key="project.id" xs12 sm4 md4 lg3>
           <ProjectCard
           :title="project.name" 
           :blurb="project.blurb" 
@@ -28,7 +29,6 @@
     <Divider 
      :DividerText="DividerText2" :linkText="'See all articles'" :link="`/allblogs`":fluid="true"></Divider>
     <LatestBlog></LatestBlog>
-    
   </v-app>
   
 </template>
@@ -40,6 +40,7 @@ import Divider from '../components/Divider'
 import LatestBlog from '../components/LatestBlog'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import HeaderSmall from '../components/HeaderSmall'
 import json from '../assets/data.json'
 export default {
   name: 'App',
@@ -49,11 +50,12 @@ export default {
     Divider,
     LatestBlog,
     Footer,
-    Header
+    Header,
+    HeaderSmall
   },
   data: () => ({
     Name:'Syahrul Nizam',
-    Blurb:"Developer Advocate in the nascent bockchain space. Specializes in developing DApps on top Quroum and Ethereum,wtih a large interest in using Solidity to build Smart Contracts. Currently a Developer Advocate for Chainstack, where I create applications to demonstrate Chainstack's extremely simple Blockchain-on-the-fly deployment process.",
+    Blurb:"I'm a Solidity Developer and I create Blockchain Applications",
     DividerText1:"Featured DApps",
     DividerText2:"Article Spotlight",
     Employers:[
@@ -64,11 +66,27 @@ export default {
 
     ],
     "Projects":json.Projects.slice(0,4),
-    dialog:false
+    dialog:false,
+    windowWidth:null,
     //
   }),
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener('resize', this.getWindowWidth);
+      window.addEventListener('resize', this.getWindowHeight);
+
+      //Init
+      this.getWindowWidth()
+    })
+  },
+  methods: {
+    getWindowWidth() {
+      this.windowWidth = document.documentElement.clientWidth;
+    }
+  }
 };
 </script>
 
 <style>
+
 </style>

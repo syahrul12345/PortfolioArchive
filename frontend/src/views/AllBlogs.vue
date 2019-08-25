@@ -1,6 +1,7 @@
 <template>
 	<v-app>
-		<Header ></Header>
+		<Header id="header" v-if="windowWidth > 600 "> "></Header>
+    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
 		<v-container grid-list-xl :fluid="true" style="padding-right: 7%;padding-left: 7%">
 			<v-layout row wrap>
 				<v-flex xs12>
@@ -27,20 +28,34 @@
 	import json from './../assets/blogs.json'
 	import BlogCards from '../components/BlogCards.vue'
 	import Header from '../components/Header'
+	import HeaderSmall from '../components/HeaderSmall'
 	export default {
 		props:[''],
 		components: {
 			BlogCards,
-			Header
+			Header,
+			HeaderSmall
 		},
 		data() {
 			return {
 				messages:null,
-				blogs:json.blogs
+				blogs:json.blogs,
+				windowWidth:null
 			}
 		},
-		created() {
-			
-		}
+		mounted() {
+			this.$nextTick(function() {
+				window.addEventListener('resize', this.getWindowWidth);
+				window.addEventListener('resize', this.getWindowHeight);
+
+				//Init
+				this.getWindowWidth()
+			})
+		},
+		methods: {
+		    getWindowWidth() {
+		      this.windowWidth = document.documentElement.clientWidth;
+		    }
+  		}
 	}
 </script>

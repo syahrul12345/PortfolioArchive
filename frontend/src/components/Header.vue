@@ -1,24 +1,25 @@
 <template>
 		<div class="header">
 			<v-container grid-list-md :fluid="true">
-				<v-tabs dark v-model="activeTab">
-					<router-link 
-					v-for="button in buttons" 
-					:key="button.id" 
-					:to= "button.link"
-					style="text-decoration: none"
-					text-center>
-						<v-tab xs1 text-center style="padding-top: 13px">
-							<v-card
-							:flat="true"
-							:outline="true"
-							:hover="true"
-							text-center
-							> {{button.name}}</v-card>
-					</v-tab>	
-					</router-link>
-					
-				</v-tabs>
+				<v-layout wrap>
+					<v-tabs dark v-model="activeTab">
+						<router-link 
+						v-for="button in buttons" 
+						:key="button.id" 
+						:to= "button.link"
+						style="text-decoration: none"
+						text-center>
+							<v-tab xs1 text-center style="padding-top: 13px">
+								<v-card
+								:flat="true"
+								:outline="true"
+								:hover="true"
+								text-center
+								> {{button.name}}</v-card>
+						</v-tab>	
+						</router-link>
+					</v-tabs>
+				</v-layout>
 			</v-container>
 		</div>
 	<!-- 	<v-card color="grey lighten-4" flat>

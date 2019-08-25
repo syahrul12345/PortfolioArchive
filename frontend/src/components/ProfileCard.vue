@@ -1,8 +1,8 @@
 <template>
 	<div @click.stop="dialog = false">
 	<v-container grid-list-xl text-centre fluid="fluid" >
-		<v-layout wrap>
-			<v-flex xs12>
+		<v-layout>
+			<v-flex xs12 >
 				<v-card
 				class="mx-auto"
 				:outline="outline"
@@ -11,23 +11,14 @@
 				color="rgba(51,51,51,0)"
 				>
 					<v-container grid-list-xs text-centre fluid="fluid">
-						<v-layout shrink>
-							<v-flex xs-10>
+						<v-layout wrap>
+							<v-flex xs12 sm12 md10>
 								<v-card-text>
 									<h1 id="myName"> {{ name }} </h1>
 									<h2 id="myBlurb"> {{ blurb }}</h2>
 								</v-card-text>
 							</v-flex>
-							<v-flex xs-2>
-								<v-avatar
-								class = "profile"
-								style = "padding-right: 10%"
-								:size="$vuetify.breakpoint.smAndUp ? 164 : 128"
-								color="gray"
-								tile>
-									<v-img src="../assets/profile.png"></v-img>
-								</v-avatar>
-							</v-flex>
+							
 						</v-layout>
 					</v-container>
 					<v-container grid-list-xs text-centre fluid="fluid">
@@ -76,7 +67,7 @@
 	padding-bottom: 25px;
 
 }
-#myCV {
+#myBlurb {
 	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 25px
 }

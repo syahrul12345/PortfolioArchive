@@ -1,11 +1,11 @@
 <template>
 <v-app>
-	<Header></Header>
-<v-container 
+	<Header id="header" v-if="windowWidth > 600 "> "></Header>
+    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
+<v-container id="mainCard"
 grid-list-md 
 :fluid="true" 
-style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
-	
+style="">
 		<v-layout wrap>
 			<v-flex xs12>
 			<v-card
@@ -16,7 +16,7 @@ style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
 				</div>
 				<v-container grid-list-xs>
 					<v-layout wrap>
-						<v-flex xs7 offset-xs1>
+						<v-flex xs12 lg7 offset-lg1>
 							<v-card
 							:hover="false"
 							:outline="true"
@@ -32,7 +32,7 @@ style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
 							</v-card>
 						</v-flex>
 						</v-flex>
-						<v-flex xs4>
+						<v-flex xs12 lg4>
 							<v-card
 							:hover="false"
 							:outline="true"
@@ -134,15 +134,18 @@ style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
 <script>
 	import json from '../assets/data.json'
 	import Header from '../components/Header'
+	import HeaderSmall from '../components/HeaderSmall'
 	export default {
 		components: {
-			Header
+			Header,
+			HeaderSmall
 		},
 		data: () => ({
 			hover:false,
 			id:null,
 			project:null,
 			myFileName:null,
+			windowWidth:null,
 			
 		}),
 		created() {
@@ -155,10 +158,37 @@ style="padding-left: 12%;padding-right: 12%;padding-top: 2%">
 				}
 			})
 
-		}
+		},
+		mounted() {
+			this.$nextTick(function() {
+				window.addEventListener('resize', this.getWindowWidth);
+				window.addEventListener('resize', this.getWindowHeight);
+				//Init
+				this.getWindowWidth()
+			})
+		},
+		methods: {
+		    getWindowWidth() {
+		      this.windowWidth = document.documentElement.clientWidth;
+		    }
+  		}
 	}
 </script>
 <style>
+
+@media(min-width: 960px){
+	#mainCard {
+		padding-left: 12%;
+		padding-right: 12%;
+		padding-top: 2%
+	}
+}
+@media(max-width: 959px){
+	#mainCard {
+		padding-top: 10%
+	}
+}
+
 #dappHeader {
 	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 20px;
