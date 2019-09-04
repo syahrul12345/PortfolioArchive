@@ -1,14 +1,10 @@
 
 <template>
-  <div id="app" >
-  	<v-content style="position: absolute; background-color: green">
+ <v-app>
+  	<v-content id="animated">
   		<router-view/>
   	</v-content>
-	<vue-particles color="#dedede">
-  	</vue-particles>
-  	
-  	
-  </div>
+ </v-app>
   
 </template>
 
