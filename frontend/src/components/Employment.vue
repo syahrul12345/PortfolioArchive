@@ -29,8 +29,6 @@
 			}
 		},
 		created() {
-			console.log("created")
-			console.log(this.Image)
 		}
 	}
 </script>

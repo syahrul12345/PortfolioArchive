@@ -2,22 +2,16 @@
  <v-app>
  	<v-app-bar id = "app-bar-desktop'" v-if="windowWidth > 600">
  		<v-tabs v-model="activeTab">
-			<router-link 
-			v-for="button in buttons" 
-			:key="button.id" 
-			:to= "button.link"
-			style="text-decoration: none"
-			text-center>
-				<v-tab xs1 text-center style="padding-top: 13px">
-					<v-card
-					:flat="true"
-					:outline="true"
-					:hover="true"
-					text-center
-					> {{button.name}}</v-card>
-			</v-tab>	
-			</router-link>
-		</v-tabs></v-app-bar>
+ 			<v-tab v-for="button in buttons"
+ 			:key="button.id"
+ 			:to="button.link"
+ 			style="text-decoration: none"
+ 			text-center>
+ 				{{button.name}}
+ 			</v-tab>
+			
+		</v-tabs>
+	</v-app-bar>
 	<v-app-bar id = "app-bar-mobile'" v-if="windowWidth < 600">
 		<v-app-bar-nav-icon>
 			<v-menu>

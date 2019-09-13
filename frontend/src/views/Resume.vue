@@ -70,7 +70,6 @@
 			}
 		},
 		created() {
-			console.log("CREATED RESUME PAGE")
 		},
 		mounted() {
 			this.$nextTick(function() {
