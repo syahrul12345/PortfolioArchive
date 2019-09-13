@@ -1,7 +1,5 @@
 <template>
-	<v-app>
-		<Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
+	<v-app style="background-color: white">
 		<v-container bg fill-height grid-list-md text-xs-center text-center>
 			<v-layout row wrap align-center>
 				<v-flex xs4>
@@ -27,13 +25,11 @@
 	
 </template>
 <script>
-	import Header from '../components/Header'
-	import HeaderSmall from '../components/HeaderSmall'
+	
 	export default {
 		props:[''],
 		components: {
-			Header,
-			HeaderSmall
+			
 		},
 		data() {
 			return {

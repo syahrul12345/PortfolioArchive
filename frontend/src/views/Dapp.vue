@@ -1,7 +1,5 @@
 <template>
 <v-app>
-	<Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
 <v-container id="mainCard"
 grid-list-md 
 :fluid="true" 
@@ -133,12 +131,8 @@ style="">
 
 <script>
 	import json from '../assets/data.json'
-	import Header from '../components/Header'
-	import HeaderSmall from '../components/HeaderSmall'
 	export default {
 		components: {
-			Header,
-			HeaderSmall
 		},
 		data: () => ({
 			hover:false,

@@ -1,7 +1,5 @@
 <template>
-<v-app>
-	<Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
+<v-app style="background-color: white">
 	<v-container grid-list-md :fluid ="true" style="padding-right: 5%;padding-left: 5%">
 		<v-layout wrap>
 			<v-flex xs12>
@@ -55,18 +53,14 @@
 </v-app>
 </template>
 <script>
-	import Header from '../components/Header'
 	import json from '../assets/personal.json'
 	import SkillBox from '../components/Skills'
 	import Employment from '../components/Employment'
-	import HeaderSmall from '../components/HeaderSmall'
 	export default {
 		props:[''],
 		components: {
-			Header,
 			SkillBox,
 			Employment,
-			HeaderSmall
 		},
 		data() {
 			return {

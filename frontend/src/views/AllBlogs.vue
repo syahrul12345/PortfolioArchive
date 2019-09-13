@@ -1,7 +1,5 @@
 <template>
-	<v-app>
-		<Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
+	<v-app style="background-color: white">
 		<v-container grid-list-xl :fluid="true" style="padding-right: 7%;padding-left: 7%">
 			<v-layout row wrap>
 				<v-flex xs12>
@@ -27,14 +25,10 @@
 <script>
 	import json from './../assets/blogs.json'
 	import BlogCards from '../components/BlogCards.vue'
-	import Header from '../components/Header'
-	import HeaderSmall from '../components/HeaderSmall'
 	export default {
 		props:[''],
 		components: {
 			BlogCards,
-			Header,
-			HeaderSmall
 		},
 		data() {
 			return {

@@ -1,7 +1,6 @@
 <template>
-	<v-app>
-		<Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
+	<v-app style="background-color: white">
+		
 		<v-container 
 		grid-list-xl 
 		:fluid="true" 
@@ -33,15 +32,11 @@
 </template>
 <script>
 	import ProjectCard from '../components/ProjectCardV2'
-	import Header from '../components/Header'
-	import HeaderSmall from '../components/HeaderSmall'
 	import json from '../assets/data.json'
 	export default {
 		name: 'App',
 		components: {
 			ProjectCard,
-			Header,
-			HeaderSmall
 		},
 		data: () => ({
 			"Projects":json.Projects,

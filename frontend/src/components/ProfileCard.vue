@@ -24,9 +24,6 @@
 					<v-container grid-list-xs text-centre fluid="fluid">
 						<v-layout wrap>
 							<v-card-actions>
-								<!-- <v-flex xl12>
-									<v-btn outlined style="font-size: 15px" @click.stop="dialog = !dialog">Employment History</v-btn>
-								</v-flex> -->
 								<router-link :to="this.allDappPage" style="text-decoration: none">
 								<v-flex xs12>
 									<v-btn outlined style="font-size: 15px">Explore All my Dapps</v-btn>

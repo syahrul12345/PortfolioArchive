@@ -1,20 +1,19 @@
 <template>
-  <v-app>
+  <v-app style="background-color: white">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-    <Header id="header" v-if="windowWidth > 600 "> "></Header>
-    <HeaderSmall id="headerSmall" v-if="windowWidth < 600"></HeaderSmall>
        <ProfileCard 
        :name="Name" 
        :blurb ="Blurb" 
        :employers="Employers"
        ></ProfileCard>
      <Divider 
-     :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"></Divider>
+     :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"
+     ></Divider>
     <v-container 
     grid-list-xl 
     text-center 
     :fluid ="true" 
-    style="padding-left:4%;padding-right:4%">
+    style="padding-left:4%;padding-right:4%;">
       <v-layout wrap>
         <v-flex v-for="project in Projects" :key="project.id" xs12 sm4 md4 lg3>
           <ProjectCard
@@ -38,8 +37,6 @@ import ProjectCard from '../components/ProjectCard'
 import Divider from '../components/Divider' 
 import LatestBlog from '../components/LatestBlog'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
-import HeaderSmall from '../components/HeaderSmall'
 import json from '../assets/data.json'
 export default {
   components: {
@@ -48,8 +45,6 @@ export default {
     Divider,
     LatestBlog,
     Footer,
-    Header,
-    HeaderSmall
   },
   data: () => ({
     Name:'Syahrul Nizam',
