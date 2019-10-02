@@ -14,7 +14,7 @@ style="">
 				</div>
 				<v-container grid-list-xs>
 					<v-layout wrap>
-						<v-flex xs12 lg7 offset-lg1>
+						<v-flex xs12 lg7>
 							<v-card
 							:hover="false"
 							:outline="true"
@@ -30,7 +30,7 @@ style="">
 							</v-card>
 						</v-flex>
 						</v-flex>
-						<v-flex xs12 lg4>
+						<v-flex xs12 lg5>
 							<v-card
 							:hover="false"
 							:outline="true"
@@ -38,29 +38,13 @@ style="">
 								<!-- Buttons -->
 								<v-container grid-list-xs>
 									<v-layout justify-center wrap>
-										<v-flex xs12 text-center>
-											<v-card
-											:hover="true"
-											:outline="true"
-											:flat="false"
-											:text="true"
-											text-center
-											light
-											:href="`//`+project.website">
-												Visit the website!
-											</v-card>
-										</v-flex>
-										<v-flex xs12 text-center>
-											<v-card
-											:hover="true"
-											:outline="true"
-											:flat="false"
-											:text="true"
-											text-center
-											light
-											:href="`//`+project.github">
-												Github
-											</v-card>
+										<v-flex xs12>
+											<a style="text-decoration:none" :href="'//' +project.website" class="mr-5">
+											<v-icon large>fas fa-globe-americas</v-icon>
+											</a>
+											<a style="text-decoration:none" :href="'//' +project.github">
+											<v-icon large>fab fa-github </v-icon>
+											</a>
 										</v-flex>
 										<v-flex xs12>
 											Contributors: Syahrul Nizam
@@ -169,7 +153,11 @@ style="">
 	}
 </script>
 <style>
-
+@media(max-width: 959px){
+	#mainCard {
+		padding-top: 10%
+	}
+}
 @media(min-width: 960px){
 	#mainCard {
 		padding-left: 12%;
@@ -177,12 +165,12 @@ style="">
 		padding-top: 2%
 	}
 }
-@media(max-width: 959px){
+
+@media(min-width: 1200px){
 	#mainCard {
-		padding-top: 10%
+		
 	}
 }
-
 #dappHeader {
 	font-family: Amsi Pro Cond SemiBold,Noto Sans SC,sans-serif;
 	font-size: 20px;
