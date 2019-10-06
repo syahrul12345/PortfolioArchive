@@ -13,7 +13,7 @@ func Message(status bool, message string) map[string]interface{} {
 	}
 }
 
-//Responds to the frontend
+//Respond to the frontend
 func Respond(responseWriter http.ResponseWriter, data map[string]interface{}) {
 	responseWriter.Header().Add("content-type", "application/json")
 	json.NewEncoder(responseWriter).Encode(data)

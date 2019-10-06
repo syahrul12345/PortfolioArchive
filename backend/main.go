@@ -19,6 +19,10 @@ func main() {
 	router.HandleFunc("/api/user/login", controller.Login).Methods("POST")
 	//Change Password
 	router.HandleFunc("/api/user/changePassword", controller.ChangePassword).Methods("POST")
+	// Adds in a new application
+	router.HandleFunc("/api/user/createApp", controller.CreateApplication).Methods("POST")
+	//Get All Applications
+	router.HandleFunc("/api/user/getAllApps", controller.GetAllApps).Methods("GET")
 	//Serve the compiled vueJS frontend
 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("../dist/")))
 	port := "5556"

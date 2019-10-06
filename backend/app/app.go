@@ -15,12 +15,12 @@ import (
 //JwtAuthentication authenticates the received JWT token
 var JwtAuthentication = func(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
-		notAuth := []string{"/api/user/new", "/api/user/login", "/api/user/changePassword"}
-		requestPath := request.URL.Path
 
-		//check if response does not require authentication
-		for _, value := range notAuth {
-			if value == requestPath {
+		requestPath := request.URL.Path
+		auth := []string{"/api/user/createApp", "/api/user/createArticle"}
+		//check if response does not require authenthication
+		for _, value := range auth {
+			if value != requestPath {
 				next.ServeHTTP(writer, request)
 				return
 			}
