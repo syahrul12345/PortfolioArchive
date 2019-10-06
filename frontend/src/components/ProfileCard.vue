@@ -1,6 +1,6 @@
 <template>
 	<div @click.stop="dialog = false">
-	<v-container grid-list-xl text-centre fluid="fluid" >
+	<v-container grid-list-xl text-centre fluid="fluid" style="background-image: linear-gradient(#98FF98, #CCFF98)">
 		<v-layout>
 			<v-flex xs12 >
 				<v-card
@@ -42,7 +42,7 @@
 
 <script>
 	export default {
-		props:['avatar','name' ,'blurb','employers'],
+		props:['avatar','name' ,'blurb'],
 		data: () => ({
 			profileLink: "../assets/profile.png",
 			fluid:true,

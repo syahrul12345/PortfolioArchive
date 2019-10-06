@@ -1,1 +1,2 @@
-module.exports = { publicPath: '/Portfolio/' }
+module.exports = { 
+    outputDir: '../dist/' }

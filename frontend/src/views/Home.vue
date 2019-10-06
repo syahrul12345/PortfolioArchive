@@ -4,7 +4,6 @@
        <ProfileCard 
        :name="Name" 
        :blurb ="Blurb" 
-       :employers="Employers"
        ></ProfileCard>
      <Divider 
      :DividerText="DividerText1" :linkText="'See all DApps'" :link="`/dapps`":fluid="true"
