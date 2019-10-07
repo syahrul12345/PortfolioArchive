@@ -10,8 +10,8 @@ import (
 	"github.com/lib/pq"
 )
 
-//ApplicationPayload represents the incoming application payload
-type ApplicationPayload struct {
+//ApplicationRequest represents the incoming application request
+type ApplicationRequest struct {
 	Name       string
 	Blurb      string
 	Category   string
@@ -22,6 +22,20 @@ type ApplicationPayload struct {
 	Platform   string
 	Tools      []string
 	Languages  []string
+}
+
+//ApplicationResponse represents the outgoing application payload
+type ApplicationResponse struct {
+	Name       string
+	Blurb      string
+	Category   string
+	MyFileName string
+	AvatarName string
+	Website    string
+	Github     string
+	Platform   string
+	Tools      []Tool
+	Languages  []Language
 }
 
 //Application struct represents one application object that will be saved
@@ -51,7 +65,7 @@ type Language struct {
 }
 
 //Validate if the Application payload is valid
-func (app *ApplicationPayload) Validate() (map[string]interface{}, bool) {
+func (app *ApplicationRequest) Validate() (map[string]interface{}, bool) {
 	if len(app.Name) == 0 {
 		return utils.Message(false, "Application must have a name"), false
 	}
@@ -66,7 +80,7 @@ func (app *ApplicationPayload) Validate() (map[string]interface{}, bool) {
 }
 
 //Create an Application Object which can be saved from the db.
-func (app *ApplicationPayload) Create() map[string]interface{} {
+func (app *ApplicationRequest) Create() map[string]interface{} {
 	validateResp, ok := app.Validate()
 	if !ok {
 		return validateResp
@@ -75,9 +89,6 @@ func (app *ApplicationPayload) Create() map[string]interface{} {
 	application := &Application{}
 	//Check if the application already exists or not
 	err := GetDB().Table("applications").Where("search = ?", nameHash).First(application).Error
-	fmt.Println(err)
-	fmt.Println(application)
-	fmt.Println("")
 	if err == nil {
 		//Application already exists
 		return utils.Message(false, "Application with same name already exists")
@@ -96,39 +107,39 @@ func (app *ApplicationPayload) Create() map[string]interface{} {
 	}
 
 	for i := range app.Tools {
-		rawData, _ := json.Marshal(app.Tools[i])
+		tool := &Tool{Name: app.Tools[i]}
+		rawData, _ := json.Marshal(tool)
 		application.Tools = append(application.Tools, rawData)
 	}
 	for k := range app.Languages {
-		rawData, _ := json.Marshal(app.Languages[k])
+		language := &Language{Name: app.Languages[k]}
+		rawData, _ := json.Marshal(language)
 		application.Languages = append(application.Languages, rawData)
 	}
 	GetDB().Create(application)
-	fmt.Println(application)
 	resp := utils.Message(true, "Succesfully Created new Application and saved into DB")
 	return resp
 }
 
 //GetApplications returns the Apllication struct when we put a post to it
-func GetApplications() []ApplicationPayload {
+func GetApplications() []ApplicationResponse {
 	//Get All Records
 	applicationList := &[]Application{}
 	GetDB().Find(applicationList)
 	//dereference it to get the array itself
 	list := *applicationList
-	applicationPayloadList := []ApplicationPayload{}
+	applicationPayloadList := []ApplicationResponse{}
 	for i := range list {
 		application := list[i]
 		applicationPayload := GetPayload(application)
 		applicationPayloadList = append(applicationPayloadList, applicationPayload)
 	}
-	fmt.Println(applicationPayloadList)
 	return applicationPayloadList
 }
 
 //GetPayload returns the ApplicationPayload when the Application struct is provided
-func GetPayload(app Application) ApplicationPayload {
-	appPayload := &ApplicationPayload{
+func GetPayload(app Application) ApplicationResponse {
+	appPayload := &ApplicationResponse{
 		Name:       app.Name,
 		Blurb:      app.Blurb,
 		Category:   app.Category,
@@ -154,19 +165,21 @@ func toByte(byteArray pq.ByteaArray) []byte {
 	return byteArray[0]
 }
 
-func getToolArray(toolArray pq.ByteaArray) []string {
-	tools := []string{}
+func getToolArray(toolArray pq.ByteaArray) []Tool {
+	tools := []Tool{}
 	for _, item := range toolArray {
-		tool := string(item)
-		tools = append(tools, tool)
+		tool := &Tool{}
+		json.Unmarshal(item, tool)
+		tools = append(tools, *tool)
 	}
 	return tools
 }
-func getLanguageArray(languageArray pq.ByteaArray) []string {
-	languages := []string{}
+func getLanguageArray(languageArray pq.ByteaArray) []Language {
+	languages := []Language{}
 	for _, item := range languageArray {
-		language := string(item)
-		languages = append(languages, language)
+		language := &Language{}
+		json.Unmarshal(item, language)
+		languages = append(languages, *language)
 	}
 	return languages
 }

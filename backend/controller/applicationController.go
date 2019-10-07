@@ -10,7 +10,7 @@ import (
 
 //CreateApplication will create a new application for the Dapp
 var CreateApplication = func(writer http.ResponseWriter, request *http.Request) {
-	application := &models.ApplicationPayload{}
+	application := &models.ApplicationRequest{}
 	err := json.NewDecoder(request.Body).Decode(application)
 	if err != nil {
 		fmt.Println(err)

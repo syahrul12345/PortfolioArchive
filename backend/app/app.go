@@ -15,7 +15,6 @@ import (
 //JwtAuthentication authenticates the received JWT token
 var JwtAuthentication = func(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
-
 		requestPath := request.URL.Path
 		auth := []string{"/api/user/createApp", "/api/user/createArticle"}
 		//check if response does not require authenthication
