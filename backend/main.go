@@ -48,6 +48,7 @@ func main() {
 	}))
 	port := "5556"
 	fmt.Println("The website can be served at http://localhost:5556")
+	//For Testing
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://127.0.0.1:8080"},
 		AllowCredentials: true,
