@@ -10,7 +10,7 @@ style="">
 			class="mx-auto"
 			:hover="hover">
 				<div id="dappHeader">
-					<p> {{project.name}} </p>
+					<p> {{project.Name}} </p>
 				</div>
 				<v-container grid-list-xs>
 					<v-layout wrap>
@@ -26,7 +26,7 @@ style="">
 							:hover="false"
 							:outline="true"
 							:flat="true">
-								{{ project.blurb}}
+								{{ project.Blurb}}
 							</v-card>
 						</v-flex>
 						</v-flex>
@@ -39,10 +39,10 @@ style="">
 								<v-container grid-list-xs>
 									<v-layout justify-center wrap>
 										<v-flex xs12>
-											<a style="text-decoration:none" :href="'//' +project.website" class="mr-5">
+											<a style="text-decoration:none" :href="'//' +project.Website" class="mr-5">
 											<v-icon large>fas fa-globe-americas</v-icon>
 											</a>
-											<a style="text-decoration:none" :href="'//' +project.github">
+											<a style="text-decoration:none" :href="'//' +project.Github">
 											<v-icon large>fab fa-github </v-icon>
 											</a>
 										</v-flex>
@@ -58,8 +58,8 @@ style="">
 														:hover="false"
 														:flat="true"
 														:outline="false"
-														v-bind:id="`${project.platform}`">
-															{{project.platform}}
+														v-bind:id="`${project.Platform}`">
+															{{project.Platform}}
 														</v-card>
 													</v-flex>
 												</v-layout>
@@ -67,16 +67,16 @@ style="">
 										<v-flex xs12>
 											Frameworks used:
 												<v-layout  wrap>
-													<v-flex xs3 v-for=" tool in project.tools"
-													v-bind:key="project.id"
+													<v-flex xs3 v-for=" tool in project.Tools"
+													v-bind:key="tool.Name"
 													text-center>
 														<v-card
 														class="mx-auto"
 														:hover="false"
 														:flat="true"
 														:outline="false"
-														v-bind:id="`${tool}`">
-															{{tool}}
+														v-bind:id="`${tool.Name}`">
+															{{tool.Name}}
 														</v-card>
 														
 													</v-flex>
@@ -85,16 +85,16 @@ style="">
 										<v-flex xs12>
 											Languages:
 											<v-layout wrap>
-												<v-flex xs3 v-for="languages in project.languages"
-												:key="project.id"
+												<v-flex xs3 v-for="languages in project.Languages"
+												:key="languages.Name"
 												text-center>
 													<v-card
 														class="mx-auto"
 														:hover="false"
 														:flat="true"
 														:outline="false"
-														v-bind:id="`${languages}`">
-															{{languages}}
+														v-bind:id="`${languages.Name}`">
+															{{languages.Name}}
 													</v-card>
 												</v-flex>
 											</v-layout>
@@ -114,7 +114,7 @@ style="">
 </template>
 
 <script>
-	import json from '../assets/data.json'
+	const axios = require('axios')
 	export default {
 		components: {
 		},
@@ -126,16 +126,20 @@ style="">
 			windowWidth:null,
 			
 		}),
-		created() {
-			this.id = this.$route.params.id
-			json.Projects.find(item => {
-				if(item.id == this.id){
-					this.project = item;
-					this.myFileName = item.myFileName
-
-				}
+		async created() {
+			await axios.get('http://localhost:5556/api/user/getAllApps').then((response) => {
+				const Projects = response.data.applications.slice(0,4)
+				this.id = this.$route.params.id
+				Projects.find((item) => {
+					if(item.Name == this.id) {
+						this.project = item;
+						this.myFileName = item.MyFileName
+					}
+				})
+			}).catch((error) => {
+				console.log(error)
+				console.log("FAILED TO GET APPLICATION LIST")
 			})
-
 		},
 		mounted() {
 			this.$nextTick(function() {

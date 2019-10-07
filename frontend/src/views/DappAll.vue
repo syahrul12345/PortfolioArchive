@@ -14,14 +14,13 @@
 				</v-flex>
 			</v-layout>
 			<v-layout row wrap>
-				<v-flex v-for="project in Projects" :key="project.id" xs12 sm12 md12 lg3>
-				<router-link :to="`/dapp/` + project.id" style="text-decoration: none">
+				<v-flex v-for="project in Projects" :key="project.Name" xs12 sm12 md12 lg3>
+				<router-link :to="`/dapp/${project.Name}`" style="text-decoration: none">
 					<ProjectCard
-					:title="project.name" 
-					:blurb="project.blurb" 
-					:url="project.url"
-					:avatarSource="project.avatarName"
-					:category="project.category"
+					:title="project.Name" 
+					:blurb="project.Blurb" 
+					:avatarSource="project.AvatarName"
+					:category="project.Category"
 					></ProjectCard>
 				</router-link>
 				</v-flex>
@@ -31,22 +30,29 @@
 
 </template>
 <script>
+	const axios = require('axios')
 	import ProjectCard from '../components/ProjectCardV2'
-	import json from '../assets/data.json'
 	export default {
 		name: 'App',
 		components: {
 			ProjectCard,
 		},
 		data: () => ({
-			"Projects":json.Projects,
+			Projects:null,
 			windowWidth:null
 		}),
+		created() {
+			axios.get('http://localhost:5556/api/user/getAllApps').then((response) => {
+				this.Projects = response.data.applications
+			}).catch((error) => {
+				console.log(error)
+				console.log("FAILED TO GET APPLICATION LIST")
+			})
+		},
 		mounted() {
 			this.$nextTick(function() {
 				window.addEventListener('resize', this.getWindowWidth);
 				window.addEventListener('resize', this.getWindowHeight);
-
 				//Init
 				this.getWindowWidth()
 			})

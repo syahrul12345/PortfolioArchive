@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -47,7 +48,12 @@ func main() {
 	}))
 	port := "5556"
 	fmt.Println("The website can be served at http://localhost:5556")
-	err := http.ListenAndServe(":"+port, router)
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://127.0.0.1:8080"},
+		AllowCredentials: true,
+	})
+	handler := c.Handler(router)
+	err := http.ListenAndServe(":"+port, handler)
 	if err != nil {
 		fmt.Println(err)
 	}
