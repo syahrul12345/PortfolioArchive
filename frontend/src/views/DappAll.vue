@@ -42,7 +42,7 @@
 			windowWidth:null
 		}),
 		created() {
-			axios.get('http://localhost:5556/api/user/getAllApps').then((response) => {
+			axios.get('http://52.74.80.18:5556/api/user/getAllApps').then((response) => {
 				this.Projects = response.data.applications
 			}).catch((error) => {
 				console.log(error)

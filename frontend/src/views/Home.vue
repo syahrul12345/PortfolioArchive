@@ -63,7 +63,7 @@ export default {
     //
   }),
   created() {
-    axios.get('http://localhost:5556/api/user/getAllApps').then((response) => {
+    axios.get('http://52.74.80.18:5556/api/user/getAllApps').then((response) => {
       this.Projects = response.data.applications.slice(0,4)
     }).catch((error) => {
       console.log("FAILED TO GET APPLICATION LIST")
