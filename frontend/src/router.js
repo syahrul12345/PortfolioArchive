@@ -6,7 +6,6 @@ import DappAll from './views/DappAll.vue'
 import AllBlogs from './views/AllBlogs.vue'
 import Resume from './views/Resume.vue'
 import Contact from './views/Contact.vue'
-
 Vue.use(Router)
 
 export default new Router({
@@ -71,7 +70,7 @@ export default new Router({
         document.title = to.meta.title
         next()
       }
-    }
+    },
   ],
 
 })

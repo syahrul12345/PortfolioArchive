@@ -127,7 +127,7 @@ style="">
 			
 		}),
 		async created() {
-			await axios.get('http://52.74.80.18:5556/api/user/getAllApps').then((response) => {
+			await axios.get('/api/user/getAllApps').then((response) => {
 				const Projects = response.data.applications.slice(0,4)
 				this.id = this.$route.params.id
 				Projects.find((item) => {
