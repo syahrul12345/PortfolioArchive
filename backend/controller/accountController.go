@@ -4,11 +4,13 @@ import (
 	"backend/models"
 	"backend/utils"
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
 //CreateAccount will create an account for the CMS
 var CreateAccount = func(writer http.ResponseWriter, request *http.Request) {
+	log.Print("Account created")
 	account := &models.Account{}
 	err := json.NewDecoder(request.Body).Decode(account)
 	if err != nil {
@@ -21,6 +23,7 @@ var CreateAccount = func(writer http.ResponseWriter, request *http.Request) {
 
 //Login to the cms
 var Login = func(writer http.ResponseWriter, request *http.Request) {
+	log.Print("Login Attempt detected")
 	account := &models.Account{}
 	err := json.NewDecoder(request.Body).Decode(account)
 	if err != nil {
