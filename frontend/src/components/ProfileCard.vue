@@ -14,7 +14,18 @@
 						<v-layout wrap>
 							<v-flex xs12 sm12 md10>
 								<v-card-text>
-									<h1 id="myName"> {{ name }} </h1>
+									<h1 id="myName"> 
+									{{ name }}
+									<v-btn href="//github.com/syahrul12345" icon>
+										<v-icon> fab fa-github </v-icon>
+									</v-btn>
+									<v-btn href="//www.linkedin.com/in/syahrul-nizam-41b984135/" icon>
+										<v-icon>fab fa-linkedin-in</v-icon>
+									</v-btn>
+									<v-btn href="mailto:syahrul.nizam@u.nus.edu" icon>
+										<v-icon> fas fa-envelope </v-icon>
+									</v-btn>
+									</h1>
 									<h2 id="myBlurb"> {{ blurb }}</h2>
 								</v-card-text>
 							</v-flex>

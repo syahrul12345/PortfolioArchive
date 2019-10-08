@@ -64,8 +64,7 @@
 					{"id":1,name:"Home","link":"/"},
 					{"id":2,name:"All DApps","link":"/dapps"},
 					{"id":3,name:"All Articles","link":"/allblogs"},
-					{"id":4,name:"Resume","link":"/resume"},
-					{"id":5,name:"Contact Me","link":"/contact"},
+					{"id":4,name:"Resume","link":"/resume"}
 				],
 				windowWidth:null
 			}
