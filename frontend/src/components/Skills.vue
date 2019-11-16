@@ -73,8 +73,8 @@
 		data() {
 			return {
 				created:null,
-				frameworks:["VueJS","truffle","embark","web3JS"],
-				languages:["Python","Solidity","Javascript"],
+				frameworks:["VueJS","truffle","embark","web3JS","ReactJS","Redux","NextJS"],
+				languages:["Golang","Python","Solidity","Javascript"],
 				platforms:["Ethereum","Quorum","Hyperledger","Multichain"]
 			}
 		}

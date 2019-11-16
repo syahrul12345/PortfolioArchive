@@ -233,5 +233,18 @@ style="">
 #Javascript{
 	background-color: #6cc24a;
 }
+#Golang{
+        background-color: #29BEB0;
+}
+#ReactJS{
+        background-color:#222222;
+        color:white;
+}
+#Redux{
+        background-color:#764abc;
+}
+#NextJS{
+        background-color:white;     
+}
 
 </style>
